@@ -2,17 +2,12 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 
     public class PersonTest {
 
-
         private ArrayList<Person> crowd;
-
 
         @Before
         public void setup() {
@@ -31,30 +26,13 @@ import java.util.ArrayList;
             crowd.add(person5);
             Person person6 = new Person("Adam", LocalDate.of(1950, 3, 27), Person.Sex.MALE, "Adam@internet.com");
             crowd.add(person6);
+
         }
 
         @After()
         public void tearDown(){
             crowd.clear();
         }
-
-//        @Test
-//        public void createTest(){
-//
-//            Person person7 = new Person();
-//            Person person8 = new Person();
-//
-//            person7.create("Bobby", LocalDate.of(2002, 4, 22), Person.Sex.MALE, "bobby@internet.com");
-//            person8.create("Reggy", LocalDate.of(1984, 2, 16), Person.Sex.FEMALE, "reggy@internet.com");
-//            crowd.add(person7);
-//            crowd.add(person8);
-//
-//            String expected7 = "bobby@internet.com";
-////            String expected8 = 1984-2-16;
-//
-//
-//            Assert.assertEquals(crowd.get(6).getEmailAddress(),expected7);
-//        }
 
         @Test
         public void personListSizeTest() {
@@ -80,7 +58,7 @@ import java.util.ArrayList;
         public void getName() {
 
             Person person3 = new Person();
-            Assert.assertEquals(person3.getName(), "Connor");
+            Assert.assertEquals(crowd.get(2).getName(), "Zolio");
         }
 
         @Test
@@ -94,23 +72,23 @@ import java.util.ArrayList;
         @Test
         public void getBirthday() {
 
-            Person person2 = new Person();
-            Assert.assertEquals(person2.getBirthday(), LocalDate.of(1993, 7, 29));
+            Person person1 = new Person();
+            Assert.assertEquals(crowd.get(0).getBirthday(), LocalDate.of(1993, 7, 29));
         }
 
         @Test
         public void setBirthday() {
 
-            Person person2 = new Person();
-            person2.setBirthday(LocalDate.of(2000, 1, 1));
-            Assert.assertEquals(person2.getBirthday(), LocalDate.of(2000, 1, 1));
+            Person person1 = new Person();
+            person1.setBirthday(LocalDate.of(2000, 1, 1));
+            Assert.assertEquals(person1.getBirthday(), LocalDate.of(2000, 1, 1));
         }
 
         @Test
         public void getGender() {
 
             Person person2 = new Person();
-            Assert.assertEquals(person2.getGender(), Person.Sex.MALE);
+            Assert.assertEquals(crowd.get(1).getGender(), Person.Sex.FEMALE);
         }
 
         @Test
@@ -140,6 +118,15 @@ import java.util.ArrayList;
 
             Person person2 = new Person();
             Assert.assertEquals(crowd.get(2).getAge(), 218);
+        }
+
+        @Test
+        public void printPersonTest() {
+
+            Person person4 = new Person("Xander", LocalDate.of(2001, 7, 22), Person.Sex.MALE, "Xander@internet.com");
+            person4.printPerson();
+
+            Assert.assertNotNull("Person Object{ Name: Xander, Birthday: 2001-07-22, Gender: MALE, EmailAddress: Xander@internet.com}");
         }
 
     }

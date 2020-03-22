@@ -18,15 +18,6 @@ public class Person {
 
     public Person(){};
 
-    public Person(ArrayList<Person> peopleList, String name, LocalDate birthday, Sex gender, String emailAddress) {
-
-        this.listPeople = peopleList;
-        this.name = name;
-        this.birthday = birthday;
-        this.gender = gender;
-        this.emailAddress = emailAddress;
-    }
-
     public Person(String name, LocalDate birthday, Sex gender, String emailAddress) {
 
         this.name = name;
@@ -34,15 +25,6 @@ public class Person {
         this.gender = gender;
         this.emailAddress = emailAddress;
     }
-
-//    public Person create(String name, LocalDate birthday, Sex gender, String emailAddress){
-//
-//        Person newPerson = new Person(name, birthday, gender, emailAddress);
-//        listPeople.add(newPerson);
-//        System.out.println(listPeople);
-//        return newPerson;
-//
-//    }
 
     public ArrayList<Person> getListPeople(){
 
@@ -101,7 +83,7 @@ public class Person {
 
     public void printPerson() {
 
-        System.out.println(String.format("Person Object{ Name: %s, Birthday: %s, Gender: %s, EmailAddress: %s}\n", this.name, birthday, gender, emailAddress));
+        System.out.println(String.format("Person Object{ Name: %s, Birthday: %s, Gender: %s, EmailAddress: %s}\n", name, birthday, gender, emailAddress));
     }
 
     public static void printPersons(List<Person> roster, CheckPerson tester) {

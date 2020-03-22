@@ -1,13 +1,12 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class AgeFilterTest {
 
     private ArrayList<Person> crowd;
-
 
     @Before
     public void setup() {
@@ -28,11 +27,23 @@ public class AgeFilterTest {
         crowd.add(person6);
     }
 
+    @Test
+    public void printPersonsOlderThanTest() {
+
+        AgeFilter.printPersonsOlderThan(crowd, 80);
+        Assert.assertNotNull("Person Object{ Name: Zolio, Birthday: 1802-03-19, Gender: MALE, EmailAddress: Zolio@internet.com}");
+
+    }
 
     @Test
-    public void printPersonsOlderThanTest(){
+    public void printPersonsWithinAgeRange() {
 
+        AgeFilter.printPersonsWithinAgeRange(crowd, 50, 80);
+        Assert.assertNotNull("Person Object{ Name: Adam, Birthday: 1950-03-27, Gender: MALE, EmailAddress: Adam@internet.com}");
+    }
 
+    @Test
+    public void printPersonsOlderThan() {
     }
 
 }
